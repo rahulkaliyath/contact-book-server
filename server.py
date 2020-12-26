@@ -22,7 +22,7 @@ def validate_token(function):
         input_data, status = authentication.authenticate(data)
         if status == "success":
             return function(input_data,time())  
-        return status
+        return input_data
     return wrapper
 
 def main():
