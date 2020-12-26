@@ -33,14 +33,14 @@ def main():
 def home(input,start_time):
     return jsonify({'time':time()-start_time})
 
-@app.route('/login',methods=['POST'])
+@app.route('/login',methods=['GET'])
 def login():
     data=request.get_json(force=True)
     user=data['user']
     expiration_time= datetime.datetime.utcnow() + datetime.timedelta(days=2)
     payload = {"user": user,"exp":expiration_time}
     token = jwt.encode(payload,"secret").decode('utf-8')
-    return jsonify({"success":"success","token":token,"user":user})
+    return jsonify({"status":"success","jwt_token":token,"user":user})
 
 @app.route('/create_contact',methods=['POST'])
 @validate_token

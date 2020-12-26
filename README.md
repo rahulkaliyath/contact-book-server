@@ -2,12 +2,22 @@
 
 Contact Book Server is a Flask API which provides basic CRUD functionalities for a Address Book App.
 
+
 ## Technology Used
 
 1. Python
 2. Flask
 3. MongoDb
 
+____
+
+## Setup
+
+1. Make sure you have Python3 
+2. pip install -r requirements.txt
+3. Run ``` python3 server.py ```
+
+____
 
 ## API Endpoints
 
@@ -176,3 +186,7 @@ Add existing contact to current users contact list.
     "status": "success"
 }
 ```
+
+## Unit Testing APIs
+ 1. cd into contact-book-server 
+ 2. Run ``` python3 test.py ```
