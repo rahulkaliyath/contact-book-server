@@ -11,7 +11,7 @@ Contact Book Server is a Flask API which provides basic CRUD functionalities for
 
 ## API Endpoints
 
-### /login
+## /login
 User must login with the regitered username and password. The response will be a JWT-Token which will be needed to access other APIs
 #### Request body
 ``` json
@@ -29,8 +29,8 @@ User must login with the regitered username and password. The response will be a
 }
 ```
 
-### /create_contact
- Create a new contact and add to Database. Contact must have a unique email id 
+## /create_contact
+ Create a new contact and add to Database. Contact to add must have a unique email id 
 #### Request body
 ``` json
 {
@@ -56,7 +56,7 @@ User must login with the regitered username and password. The response will be a
 ```
 
 
-### /list_contacts
+## /list_contacts
 List all the contacts associated with the current user.
 #### Request body
 ``` json
@@ -84,7 +84,14 @@ List all the contacts associated with the current user.
     "status": "success"
 }
 ```
-### /remove_contact
+API also supports Pagination with result limit within a page
+
+eg:
+``` html
+/list_contacts/page=1&limit=10
+```
+
+## /remove_contact
 Removes the contact from current users contact list.
 #### Request body
 ``` json
@@ -103,7 +110,7 @@ Removes the contact from current users contact list.
 }
 ```
 
-### /search_contacts
+## /search_contacts
 API returns a list of contacts matching either name or email. The search is done by MondoDB text search index. 
 #### Request body
 ``` json
@@ -130,7 +137,7 @@ API returns a list of contacts matching either name or email. The search is done
 }
 ```
 
-### /update_contact
+## /update_contact
 Updates the current users name, email or both.
 #### Request body
 ``` json
@@ -151,7 +158,7 @@ Updates the current users name, email or both.
     "status": "success"
 }
 ```
-### /add_contacts
+## /add_contacts
 Add existing contact to current users contact list.
 #### Request body
 ``` json
