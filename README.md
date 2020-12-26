@@ -21,10 +21,6 @@ User must login with the regitered username and password. The response will be a
 ```
 
 #### Response
-
-``` json 
-
-```
 ``` json 
 {
     "success": "success",
@@ -38,7 +34,7 @@ User must login with the regitered username and password. The response will be a
 #### Request body
 ``` json
 {
-    "jwt_token":"ReNV2f0VGzPyJbf9v7RY9q1gie5eW2iIlguEuzpSqoc",
+    "jwt_token":"***jwt-token***",
     "email":"superman@dc.com",
     "name":"Kent Clarke"
 }
@@ -88,6 +84,88 @@ List all the contacts associated with the current user.
     "status": "success"
 }
 ```
+### /remove_contact
+Removes the contact from current users contact list.
+#### Request body
+``` json
+{
+    "jwt_token":"***jwt-token***",
+    "contact_id" : "60g33"
+}
+```
 
+#### Response
 
+``` json 
+{
+    "message": "",
+    "status": "success"
+}
+```
 
+### /search_contacts
+API returns a list of contacts matching either name or email. The search is done by MondoDB text search index. 
+#### Request body
+``` json
+{
+    "jwt_token":"***jwt-token***",
+    "search_string":"superman"
+}
+```
+
+#### Response
+
+``` json 
+{
+    "message": "",
+    "results": [
+        {
+            "contact_id": "jj4gd",
+            "email": "superman@dc.com",
+            "name": "Kent Clarke",
+            "score": 0.6666666666666666
+        }
+    ],
+    "status": "success"
+}
+```
+
+### /update_contact
+Updates the current users name, email or both.
+#### Request body
+``` json
+{
+    "jwt_token":"***jwt-token***",
+    "email" : "brucewayne@wayneindustries.com",
+    "name" : "Bruce Wayne",
+    "contact_id" : "7440f",
+    "fields_to_update": ["email","name"]
+}
+```
+
+#### Response
+
+``` json 
+{
+    "message": "",
+    "status": "success"
+}
+```
+### /add_contacts
+Add existing contact to current users contact list.
+#### Request body
+``` json
+{
+    "jwt_token":"***jwt-token***",
+    "contact_ids" : ["60g33"]
+}
+```
+
+#### Response
+
+``` json 
+{
+    "message": "",
+    "status": "success"
+}
+```
